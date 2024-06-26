@@ -39,7 +39,7 @@ app.get('time', async (c) => {
   return c.text("Request completed");
 });
 
-const port = 8080;
+const port = 8000;
 
 serve({
   fetch: app.fetch,
