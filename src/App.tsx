@@ -32,7 +32,7 @@ const bookReducer = (state: Book[], action: ActionType): Book[] => {
       return state;
   }
 };
-f
+
 const App: React.FC = () => {
   const [storedBooks, setStoredBooks] = useLocalStorage<Book[]>('books', []);
   const [books, dispatch] = useReducer(bookReducer, storedBooks);
