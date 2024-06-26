@@ -1,27 +1,17 @@
 import "dotenv/config";
 import { drizzle } from "drizzle-orm/node-postgres";
-import { Pool } from "pg";
+const { Client } = require("pg");
 import * as schema from "./schema";
 
-// Use a connection pool instead of a single client
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+export const client = new Client({
+  connectionString: process.env.DATABASE_URL as string,
 });
 
-// Connect to the database and handle errors
 const main = async () => {
-  try {
-    await pool.connect(); // connect to the database
-    console.log("Connected to the database");
-  } catch (error) {
-    console.error("Failed to connect to the database", error);
-    process.exit(1);
-  }
+  await client.connect(); //connect to the database
 };
 
 main();
-
-const db = drizzle(pool, { schema, logger: true });
+const db = drizzle(client, { schema, logger: true });
 
 export default db;
-export { pool };
