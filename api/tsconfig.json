@@ -5,6 +5,7 @@
     "moduleResolution": "Node",
     "outDir": "./dist",
     "rootDir": "./src",
+    "lib": ["es6"],
     "strict": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
