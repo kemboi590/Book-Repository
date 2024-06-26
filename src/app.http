@@ -1,15 +1,15 @@
 
 ### TEST ROUTE
-GET http://localhost:8081   
+GET http://localhost:8000   
 
 ### GET ALL BOOKS
-GET http://localhost:8081/books
+GET http://localhost:8000/books
 
 ### GET BOOK BY ID
-GET http://localhost:8081/books/1
+GET http://localhost:8000/books/1
 
 ### CREATE BOOK
-POST http://localhost:8081/books
+POST http://localhost:8000/books
 Content-Type: application/json
 
 {
@@ -19,7 +19,7 @@ Content-Type: application/json
 }
 
 ### UPDATE BOOK
-PUT http://localhost:8081/books/1
+PUT http://localhost:8000/books/1
 Content-Type: application/json
 
 {
@@ -29,4 +29,4 @@ Content-Type: application/json
 }
 
 ### DELETE BOOK
-DELETE http://localhost:8081/books/14
+DELETE http://localhost:8000/books/14
