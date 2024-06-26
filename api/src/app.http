@@ -1,0 +1,32 @@
+
+### TEST ROUTE
+GET http://localhost:8081   
+
+### GET ALL BOOKS
+GET http://localhost:8081/books
+
+### GET BOOK BY ID
+GET http://localhost:8081/books/1
+
+### CREATE BOOK
+POST http://localhost:8081/books
+Content-Type: application/json
+
+{
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "year": 1925
+}
+
+### UPDATE BOOK
+PUT http://localhost:8081/books/1
+Content-Type: application/json
+
+{
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "year": 1925
+}
+
+### DELETE BOOK
+DELETE http://localhost:8081/books/14

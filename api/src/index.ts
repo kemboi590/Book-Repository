@@ -7,6 +7,10 @@ import { trimTrailingSlash } from 'hono/trailing-slash'
 import { timeout } from 'hono/timeout'
 import { HTTPException } from 'hono/http-exception'
 
+
+// all routes
+import { bookRouter } from './books/book.router';
+
 const app = new Hono()
 
 // custom factory method
@@ -25,6 +29,9 @@ app.use("time", timeout(10000, customTimeException))
 app.get('/', (c) => {
   return c.text('The server is running📢!')
 })
+
+// book routes
+app.route('/', bookRouter)
 
 app.get('time', async (c) => {
   await new Promise((resolve) => setTimeout(resolve, 3000))
