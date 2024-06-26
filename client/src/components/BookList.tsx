@@ -1,7 +1,7 @@
-
 import React, { useState, useCallback } from 'react';
 
 interface Book {
+  id?: number;
   title: string;
   author: string;
   year: number;
@@ -28,33 +28,37 @@ const BookList: React.FC<BookListProps> = ({ books, onEdit, onDelete }) => {
   const currentBooks = books.slice((currentPage - 1) * booksPerPage, currentPage * booksPerPage);
 
   return (
-    <div className='bg-slate-600'>
+    <div className="bg-white p-6 rounded-lg shadow-md mt-6">
       <table className="min-w-full leading-normal">
         <thead>
-          <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Year</th>
-            <th>Actions</th>
+          <tr className="bg-gray-200">
+            <th className="py-2 px-4">Title</th>
+            <th className="py-2 px-4">Author</th>
+            <th className="py-2 px-4">Year</th>
+            <th className="py-2 px-4">Actions</th>
           </tr>
         </thead>
         <tbody>
           {currentBooks.map((book, index) => (
-            <tr key={index}>
-              <td>{book.title}</td>
-              <td>{book.author}</td>
-              <td>{book.year}</td>
-              <td >
-                <button onClick={() => onEdit(index + (currentPage - 1) * booksPerPage)} className='bg-green-600 p-2 m-2 rounded-lg'>Edit</button>
-                <button onClick={() => onDelete(index + (currentPage - 1) * booksPerPage)} className='bg-red-600 p-2 m-2 rounded-lg'>Delete</button>
+            <tr key={index} className="border-b border-gray-200">
+              <td className="py-2 px-4">{book.title}</td>
+              <td className="py-2 px-4">{book.author}</td>
+              <td className="py-2 px-4">{book.year}</td>
+              <td className="py-2 px-4">
+                <button onClick={() => onEdit(index + (currentPage - 1) * booksPerPage)} className="bg-green-500 text-white p-2 m-2 rounded-md hover:bg-green-600">Edit</button>
+                <button onClick={() => onDelete(index + (currentPage - 1) * booksPerPage)} className="bg-red-500 text-white p-2 m-2 rounded-md hover:bg-red-600">Delete</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <div className='flex justify-between items-center mx-7 p-5'>
-        <button onClick={handlePreviousPage} disabled={currentPage === 1} className='text-xl'> 👈🏻Previous</button>
-        <button onClick={handleNextPage} disabled={currentPage === Math.ceil(books.length / booksPerPage)} className='text-xl'>Next 👉🏻</button>
+      <div className="flex justify-between items-center mt-4">
+        <button onClick={handlePreviousPage} disabled={currentPage === 1} className="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600">
+          Previous
+        </button>
+        <button onClick={handleNextPage} disabled={currentPage === Math.ceil(books.length / booksPerPage)} className="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600">
+          Next
+        </button>
       </div>
     </div>
   );
