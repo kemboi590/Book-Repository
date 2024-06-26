@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - book-store
+name: Build and deploy Node.js app to Azure Web App - book-library-api
 
 on:
   push:
@@ -57,15 +57,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_3406541074D1447A9A325E162109BD43 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_54D0CBBA5979433FB44C803ADA69A7D7 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_0F9BE36202B240E6837A85FEF86BEE03 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_23534C0CC2FA451D80C25E5793E30E0B }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_A62837B886B34A76B657B695F09397B6 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_4763FCA80D2B43C4A133C931BBCADD3C }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'book-store'
+          app-name: 'book-library-api'
           slot-name: 'Production'
           package: .
           
