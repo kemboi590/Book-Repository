@@ -1,6 +1,4 @@
-import { integer, pgTable, serial, varchar, text, timestamp, boolean, decimal, } from "drizzle-orm/pg-core";
-import { sql } from "drizzle-orm";
-import { relations } from "drizzle-orm";
+import { integer, pgTable, serial, varchar } from "drizzle-orm/pg-core";
 
 // 1. State
 export const bookTable = pgTable("book", {
@@ -8,10 +6,8 @@ export const bookTable = pgTable("book", {
   title: varchar("title", { length: 255 }).notNull(),
   author: varchar("author", { length: 255 }).notNull(),
   year: integer("year").notNull(),
-
 });
 
-
-// State table
+// State table types
 export type TIBook = typeof bookTable.$inferInsert;
 export type TSIBook = typeof bookTable.$inferSelect;
