@@ -6,7 +6,7 @@ import { csrf } from 'hono/csrf'
 import { trimTrailingSlash } from 'hono/trailing-slash'
 import { timeout } from 'hono/timeout'
 import { HTTPException } from 'hono/http-exception'
-
+import cors from "cors";
 
 // all routes
 import { bookRouter } from './books/book.router';

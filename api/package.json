@@ -12,6 +12,7 @@
   "dependencies": {
     "@hono/node-server": "^1.11.2",
     "@hono/zod-validator": "^0.2.2",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "drizzle-orm": "^0.31.0",
     "hono": "^4.4.2",
@@ -19,6 +20,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/node": "^20.11.17",
     "@types/pg": "^8.11.6",
     "drizzle-kit": "^0.22.2",
